@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>BMI Calculate</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <h2>BMI Calculator</h2>
+        </div>
+        <div class="information">
+          <span>Mert Ali Koçak</span>
+          <span
+            ><a href="https://github.com/mertalikocak" target="_blank"
+              >GitHub</a
+            ></span
+          >
+        </div>
+      </div>
+      <div class="left-container"></div>
+      <div class="main-container">
+        <div class="form">
+          <form>
+            <label for="height">Height</label>
+            <input
+              name="height"
+              id="height-input"
+              type="text"
+              placeholder="cm"
+            />
+            <label for="weight">Weight</label>
+            <input
+              name="weight"
+              id="weight-input"
+              type="text"
+              placeholder="kg"
+            />
+            <button class="button-5" role="button">Calculate</button>
+          </form>
+          <span id="bmi"></span>
+        </div>
+        <div class="result">
+          <h3>Results</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>Category</td>
+                <td>BMI range - kg/m<sup>2</sup></td>
+              </tr>
+              <tr>
+                <td>Severe Thinness</td>
+                <td>&lt; 16</td>
+              </tr>
+              <tr>
+                <td>Moderate Thinness</td>
+                <td>16 - 17</td>
+              </tr>
+              <tr>
+                <td>Mild Thinness</td>
+                <td>17 - 18.5</td>
+              </tr>
+
+              <tr>
+                <td>Normal</td>
+                <td>18.5 - 25</td>
+              </tr>
+              <tr>
+                <td>Overweight</td>
+                <td>25 - 30</td>
+              </tr>
+              <tr>
+                <td>Obese Class I</td>
+                <td>30 - 35</td>
+              </tr>
+              <tr>
+                <td>Obese Class II</td>
+                <td>35 - 40</td>
+              </tr>
+              <tr>
+                <td>Obese Class III</td>
+                <td>&gt; 40</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="right-container"></div>
+      <div class="footer"></div>
+    </div>
+
+    <script>
+      const height = document.querySelector("#height-input");
+      const weight = document.querySelector("#weight-input");
+      const button = document.querySelector(".button-5");
+      const result = document.querySelector("#bmi");
+      function isNumberKey(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          alert("Lütfen nümerik değerler giriniz.");
+          evt.preventDefault();
+          return false;
+        }
+        return true;
+      }
+      height.addEventListener("keypress", isNumberKey);
+      weight.addEventListener("keypress", isNumberKey);
+      const handleCalculate = (event) => {
+        event.preventDefault();
+        console.log(height?.value + " " + weight?.value);
+        const bmi =
+          (parseInt(weight.value, 10) /
+            (parseInt(height.value) * parseInt(height.value))) *
+          10000;
+        if (isNaN(bmi)) {
+          result.innerHTML = "Please fill in the blanks correctly";
+        } else {
+          let type = "";
+          if (bmi < 16) {
+            type = "Severe Thinness";
+          }
+          if (bmi < 17 && bmi >= 16) {
+            type = "Moderate Thinness";
+          }
+          if (bmi < 18.5 && bmi >= 17) {
+            type = "Mild Thinness";
+          }
+          if (bmi < 25 && bmi >= 18.5) {
+            type = "Normal";
+          }
+          if (bmi < 30 && bmi >= 25) {
+            type = "Overweight";
+          }
+          if (bmi < 35 && bmi >= 30) {
+            type = "Obese Class 1";
+          }
+          if (bmi <= 40 && bmi >= 35) {
+            type = "Obese Class 2";
+          }
+          if (bmi > 40) {
+            type = "Obese Class 3";
+          }
+          result.innerHTML = `BMI:${bmi.toFixed(1)}<br/> 
+          ${type}`;
+        }
+      };
+      button.addEventListener("click", handleCalculate);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
+
+body {
+  margin: 0;
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000");
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 15vh 1fr 1fr 20vh;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.header {
+  margin: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-area: 1 / 1 / 2 / 5;
+  background-color: rgba(192, 178, 209, 0.356);
+  border-radius: 50px;
+}
+
+.logo {
+  grid-area: 1 / 1 / 4 / 2;
+  display: flex;
+
+  align-items: center;
+  padding-left: 20px;
+}
+
+.information {
+  grid-area: 1 / 2 / 4 / 4;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 50px;
+  margin-right: 3%;
+  font-size: 1.8vh;
+}
+.information a {
+  text-decoration: none;
+  color: #c85000;
+}
+
+.left-container {
+  grid-area: 2 / 1 / 4 / 2;
+}
+
+.main-container {
+  height: 60vh;
+  display: grid;
+  padding: 2%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-area: 2 / 2 / 4 / 4;
+  font-size: 1vw;
+  padding: 2%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.form {
+  grid-area: 1 / 1 / 3 / 2;
+}
+#bmi {
+  display: block;
+  margin: 10% 0 0 10px;
+  font-size: 2.5vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.result {
+  grid-area: 1 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+}
+.result h3 {
+  font-size: 1.8vw;
+  margin: 10px 0 0 0;
+}
+.result table {
+  height: 50%;
+  font-size: 1.7vw;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.form form input {
+  margin: 15px 0 15px 0;
+  width: 50%;
+  height: auto;
+  font-size: 2vh;
+  border-radius: 50px;
+  padding-left: 10px;
+}
+.form form label {
+  font-size: 2vh;
+  margin-left: 1%;
+}
+
+.right-container {
+  grid-area: 2 / 4 / 4 / 5;
+}
+
+.footer {
+  grid-area: 4 / 1 / 5 / 5;
+}
+
+/* CSS */
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 1.5vh;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 40%;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
